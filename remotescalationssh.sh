@@ -44,5 +44,6 @@ echo "Instalando o SSH"
 apt install openssh-server -y
 systemctl start ssh
 systemctl enable ssh
+ufw allow ssh
 
 echo "Feito"
