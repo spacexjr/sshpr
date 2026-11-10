@@ -14,7 +14,7 @@ if [ -z "$MINT_CODENAME" ]; then
     UBUNTU_CODENAME="noble"
 fi
 
-rm /etc/apt/sources.list.d/repositorio-parana.list
+rm /etc/apt/sources.list.d/repositorios-parana.list
 rm /etc/apt/sources.list.d/ubuntu-parana.list
 rm /etc/apt/sources.list.d/vscode_celepar.list
 
