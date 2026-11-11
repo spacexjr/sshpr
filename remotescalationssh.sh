@@ -34,6 +34,9 @@ deb http://archive.ubuntu.com/ubuntu $UBUNTU_CODENAME-backports main restricted 
 deb http://security.ubuntu.com/ubuntu/ $UBUNTU_CODENAME-security main restricted universe multiverse
 EOF
 
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo gpg --dearmor -o /usr/share/keyrings/tailscale.gpg
+echo "deb [signed-by=/usr/share/keyrings/tailscale.gpg] https://pkgs.tailscale.com/stable/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/tailscale.list
+
 echo "Atualizando a lista de pacotes..."
 apt update
 
@@ -41,9 +44,11 @@ echo "Repositórios restaurados com sucesso!"
 
 echo "Instalando o SSH"
 
+apt install tailscale -y
 apt install openssh-server -y
 systemctl start ssh
 systemctl enable ssh
 ufw allow ssh
+tailscale up
 
 echo "Feito"
